@@ -1,0 +1,97 @@
+// components/Navbar.scss
+@import './styles/variables'; 
+
+.navbar-default {
+  background-color: $dark-color; // Using variable from _variables.scss
+
+  .navbar-header {
+    float: left;
+
+    .navbar-brand {
+      color: $light-color;
+      &:hover, &:focus {
+        color: lighten($light-color, 10%);
+      }
+    }
+  }
+
+  .nav {
+    float: left;
+    margin-left: 20px;
+
+    .nav-item {
+      .nav-link {
+        color: $light-color;
+        &:hover, &:focus {
+          color: lighten($light-color, 20%);
+        }
+
+        &.active, &:active {
+          background-color: darken($dark-color, 10%);
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .dropdown {
+      position: relative;
+
+      a {
+        cursor: pointer;
+        color: $light-color;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: $light-color;
+        border: 1px solid $dark-color;
+        border-radius: 4px;
+        padding: 8px 0;
+        min-width: 160px;
+
+        a {
+          padding: 8px 16px;
+          display: block;
+          color: $dark-color;
+          &:hover {
+            background-color: lighten($dark-color, 10%);
+          }
+        }
+      }
+
+      &:hover .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .navbar-nav > li {
+      float: left;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .navbar-nav {
+      float: none;
+      margin: 7.5px -15px;
+
+      .nav-item {
+        float: none;
+        width: 100%;
+
+        .nav-link {
+          padding-left: 15px;
+          padding-right: 15px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+// Additional responsive adjustments or custom styles...
+
+

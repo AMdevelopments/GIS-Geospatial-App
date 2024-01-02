@@ -1,0 +1,32 @@
+// src/components/styles/main.scss
+@import 'variables';
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'; // Correct path from main.scss to node_modules
+
+// Since _navbar.scss and others are one level up in the directory structure, you need to go up one level
+@import '../_navbar'; // Go up to components, then find _navbar.scss
+@import '../footer'; // Go up to components, then find _footer.scss
+@import '../homepage'; // Go up to components, then find _homepage.scss
+@import '../features'; // Go up to components, then find _features.scss
+
+// The rest of your global styles...
+
+
+
+
+
+body {
+  margin: 0;
+  font-family: $base-font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Responsive Typography
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2em;
+  }
+}
+
+// ... you can add more global styles here
+
