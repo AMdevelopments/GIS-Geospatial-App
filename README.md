@@ -7,7 +7,11 @@ This GIS & Geospatial Application provides powerful tools and features for geosp
 ## Features
 
 - **Google Maps Integration**: Utilizes the Google Maps API for rendering interactive maps.
-- ... [other features]
+-- **User Authentication**: Secure login and registration system to manage user access.
+- **High-Resolution Maps**: Offering detailed and clear visualization for various geospatial data.
+- **User Dashboard**: Personalized dashboard displaying user account details and other relevant information.
+- **Responsive Design**: The application is fully responsive and can be used on various devices and screen sizes.
+
 
 ## Technologies Used
 
