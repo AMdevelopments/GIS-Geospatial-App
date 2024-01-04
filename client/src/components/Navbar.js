@@ -4,32 +4,42 @@ import { Link, useNavigate } from 'react-router-dom';
 import './_navbar.scss';
 
 const Navbar = () => {
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Perform logout logic (e.g., remove token from localStorage)
     localStorage.removeItem('token');
     navigate('/login');
+    setIsNavExpanded(false); // Close navbar on logout
+  };
+
+  const toggleNavbar = () => {
+    setIsNavExpanded(!isNavExpanded);
   };
 
   return (
     <nav className="navbar navbar-default">
       <div className="container-fluid">
         <div className="navbar-header">
+          <button className="navbar-toggle" onClick={toggleNavbar}>
+            {/* Icon for the toggle button */}
+            <span className="navbar-toggler-icon"></span>
+          </button>
           <Link className="navbar-brand" to="/">GIS & Geospatial App</Link>
         </div>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className={`collapse navbar-collapse ${isNavExpanded ? 'show' : ''}`} id="navbarNav">
           <ul className="nav navbar-nav navbar-right">
-            <li className="active"><Link to="/">Home</Link></li>
-            <li><Link to="/features">Features</Link></li>
-            <li><Link to="/login">Login</Link></li> {/* Link to login page */}
+            {/* Navbar items */}
+            <li className="active"><Link to="/" onClick={toggleNavbar}>Home</Link></li>
+            <li><Link to="/features" onClick={toggleNavbar}>Features</Link></li>
+            <li><Link to="/login" onClick={toggleNavbar}>Login</Link></li>
             <li className="dropdown">
-              <a onClick={() => setDropdownOpen(!dropdownOpen)}>Profile</a>
+              <a href="#" onClick={() => setDropdownOpen(!dropdownOpen)}>Profile</a>
               {dropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/dashboard">Dashboard</Link>
-                  <a onClick={handleLogout}>Sign Out</a>
+                  <Link to="/dashboard" onClick={toggleNavbar}>Dashboard</Link>
+                  <a href="#" onClick={handleLogout}>Sign Out</a>
                 </div>
               )}
             </li>
@@ -41,6 +51,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 
