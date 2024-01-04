@@ -1,24 +1,32 @@
-// src/components/styles/main.scss
+//components/styles/main.scss
 @import 'variables';
-@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'; // Correct path from main.scss to node_modules
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'; // Confirm this path is correct
 
-// Since _navbar.scss and others are one level up in the directory structure, you need to go up one level
-@import '../_navbar'; // Go up to components, then find _navbar.scss
-@import '../footer'; // Go up to components, then find _footer.scss
-@import '../homepage'; // Go up to components, then find _homepage.scss
-@import '../features'; // Go up to components, then find _features.scss
+// Importing component-specific styles
+@import '../_navbar';
+@import '../_footer'; // Update the import if the filename is _footer.scss
+@import '../_homepage';
+@import '../_features';
 
-// The rest of your global styles...
-
-
-
-
-
+// Global Styles
 body {
   margin: 0;
   font-family: $base-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4; // Light background for an airy feel
+  color: #333; // Dark text for contrast
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Add a new class for the main content that will grow to push the footer down
+.main-content {
+  flex-grow: 1;
 }
 
 // Responsive Typography
@@ -28,5 +36,42 @@ body {
   }
 }
 
-// ... you can add more global styles here
+// Navbar styles
+.navbar-default {
+  background-color: #0056b3; // Deep blue, resembling an oceanic theme
+  .navbar-brand {
+    color: #fff;
+  }
+}
+
+// Footer styles
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 1em 0;
+}
+
+// HomePage styles
+.home-page {
+  .container {
+    .page-title {
+      color: #017374; // Earthy green, like foliage
+    }
+  }
+}
+
+// Features styles
+.features-section {
+  background-color: #e7e7e7; // Light grey for contrast
+  .feature-item {
+    background-color: #fff; // White cards
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+}
+
+// Add any additional global styles...
+
+
 

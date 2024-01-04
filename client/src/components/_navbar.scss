@@ -3,9 +3,14 @@
 
 .navbar-default {
   background-color: $dark-color; // Using variable from _variables.scss
+  color: $light-color;
 
   .navbar-header {
-    float: left;
+    @media (max-width: 767px) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
 
     .navbar-brand {
       color: $light-color;
@@ -16,11 +21,22 @@
   }
 
   .nav {
-    float: left;
-    margin-left: 20px;
+    @media (min-width: 768px) {
+      float: right;
+      margin-right: 20px;
+    }
 
-    .nav-item {
-      .nav-link {
+    li {
+      @media (min-width: 768px) {
+        float: left;
+        margin-left: 15px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      a {
         color: $light-color;
         &:hover, &:focus {
           color: lighten($light-color, 20%);
@@ -36,9 +52,22 @@
     .dropdown {
       position: relative;
 
+      @media (min-width: 768px) {
+        &:hover .dropdown-menu {
+          display: block;
+        }
+      }
+
       a {
         cursor: pointer;
         color: $light-color;
+
+        @media (max-width: 767px) {
+          display: block;
+          width: 100%;
+          text-align: left;
+          padding: 10px 15px;
+        }
       }
 
       .dropdown-menu {
@@ -51,6 +80,13 @@
         padding: 8px 0;
         min-width: 160px;
 
+        @media (max-width: 767px) {
+          position: static;
+          width: 100%;
+          box-sizing: border-box;
+          border: none;
+        }
+
         a {
           padding: 8px 16px;
           display: block;
@@ -60,38 +96,58 @@
           }
         }
       }
-
-      &:hover .dropdown-menu {
-        display: block;
-      }
-    }
-  }
-
-  @media (min-width: 768px) {
-    .navbar-nav > li {
-      float: left;
     }
   }
 
   @media (max-width: 767px) {
-    .navbar-nav {
-      float: none;
-      margin: 7.5px -15px;
+    .navbar-collapse {
+      display: none;
+      width: 100%;
 
-      .nav-item {
-        float: none;
+      &.show {
+        display: block;
+      }
+    }
+
+    .nav {
+      display: block;
+      width: 100%;
+      padding-left: 0;
+      
+      li {
+        display: block;
         width: 100%;
-
-        .nav-link {
-          padding-left: 15px;
-          padding-right: 15px;
+        margin: 0;
+        
+        a {
+          display: block;
+          width: 100%;
+          padding: 10px 15px;
           text-align: left;
+          &:hover {
+            background-color: darken($dark-color, 10%);
+          }
         }
       }
     }
   }
 }
 
-// Additional responsive adjustments or custom styles...
+// Toggle button (hamburger menu) styles
+.navbar-toggle {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    outline: none;
+  }
+}
+
 
 

@@ -1,1 +1,56 @@
-//footer.scss
+// components/Footer.scss
+@import './styles/variables'; 
+
+.footer {
+  background-color: $dark-color; // Using dark color for the footer background
+  color: $light-color; // Light color for the text
+  padding: 1rem 0;
+  width: 100%; // Full width
+
+  .container {
+    .row {
+      .col-md-4 {
+        h5 {
+          margin-bottom: 0.75rem;
+        }
+        ul {
+          padding-left: 0;
+          list-style: none;
+          
+          li {
+            margin-bottom: 0.5rem;
+
+            a {
+              color: inherit;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .text-center {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    .container {
+      .row {
+        .col-md-4 {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+

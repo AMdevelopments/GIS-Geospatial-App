@@ -6,7 +6,12 @@
     h1 {
       margin-bottom: 1rem;
     }
-  
+    .dashboard-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1; // This will make sure that the container takes up all available space
+        // Your other styles...
+    }
     // Add more styles as needed for your dashboard
   }
   

@@ -1,17 +1,19 @@
 // components/HomePage.js
 import React from 'react';
+import './_homepage.scss';
 import Map from './Map';
 
 const HomePage = () => {
   return (
-    <main className="flex-fill">
+    <main className="home-page flex-fill">
       <div className="container text-center mt-5">
         <h1 className="page-title mb-4">GIS & Geospatial Application</h1>
         <Map />
-        {/* You can add more content here that belongs to the HomePage */}
+        {/* Additional content here */}
       </div>
     </main>
   );
 };
 
 export default HomePage;
+
